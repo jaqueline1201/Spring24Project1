@@ -1,8 +1,40 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+h1 {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
 }
 
-a {
-  color: #00B7FF;
+h2 {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+li {
+    font-family: "Cookie", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.homeText {
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+form {
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.logoImg {
+    width: 80px;
+}
+
+.title-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

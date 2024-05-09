@@ -1,13 +1,138 @@
-<html>
-
-<head>
-  <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-
-<body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
-</body>
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cookie&family=Delius&family=Itim&display=swap');
+        </style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <title>MyMobileProject</title>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" href="css/themes/recipesproject.css">
+        <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" href="stylesheets/style.css">
+    </head>
+    <body>
+<!--------------------------- HOME PAGE  ------------------------------>
+        <div data-role="page" data-theme="a" id="page1">
+                <div data-role="header">
+                    <div class="title-wrap">
+                        <img src="images/logochef.png" alt="Image by pngtree.com" class="logoImg"> 
+                        <h1>Home</h1>
+                    </div>
+                    <div data-role="navbar">
+                        <ul>
+                            <li class="navtext"><a href="#page2">Add a New Recipe</a></li>
+                            <li class="navtext"><a href="#page3">List of Recipes</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <p class="homeText">If you are looking for a place to store all the recipes that you like, you are in the right place! </p>
+                    <p class="homeText">A question that a lot of us face at some point is, <strong>WHAT SHOULD I COOK TODAY?</strong>When I ran out of ideas, I ask my mom for recipes, or I search them on the internet. Sometimes I saved some recipes on Facebook, Instagram or TikTok but when I want to use some of them, it took me a lot of time searching on each platform for the recipe that I want.</p>
+                    <p class="homeText">So here is the solution, a place where you can store your favorite recipes!</p>
+                </div>
+            <div data-role="footer">
+                <h2>&copy; Spring 2024 by Jaqueline Navarro</h2> 
+            </div>
+        </div>
+<!------------------------- ADD RECIPE PAGE --------------------------->
+        <div data-role="page" data-theme="a" id="page2">
+            <div data-role="header">
+                <div class="title-wrap">
+                    <img src="images/logochef.png" alt="Image by pngtree.com" class="logoImg"> 
+                    <h1>Add a New Recipe</h1>
+                </div>
+                <div data-role="navbar">
+                    <ul>
+                        <li class="navtext"><a href="#page1">Home</a></li>
+                        <li class="navtext"><a href="#page3">List of Recipes</a></li>
+                    </ul>
+                </div>
+            </div>
+                <div data-role="main" class="ui-content">
+                    <form action="#" method="get">
+                        Recipe Title:<br>
+                        <input type="text" id="recipeTitle">
+                        <label for="typeOfFood">Type of Food:</label>
+                        <select name="typeOfFood" id="typeOfFood">
+                            <option value="mexican">Mexican</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="japanease">Japanese</option>
+                            <option value="italian">Italian</option>
+                            <option value="vietnamise">Vietnamise</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="drinks">Drinks</option>
+                        </select>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <label for="choice1">Online Source</label>
+                            <input type="radio" name="choice1" id="choice1">
+                            <label for="choice2">Personal Source</label>
+                            <input type="radio" name="choice2" id="choice2">
+                        </fieldset>
+                        Ingredients:<br>
+                        <input type="text">
+                        Instructions:<br>
+                        <input type="text">
+                        URL:<br>
+                        <input type="text">
+                        Notes:<br>
+                        <input type="text">
+                        <button class="ui-btn ui-btn-inline">Save</button>
+                        <button class="ui-btn ui-btn-inline">Clear</button>
+                </div>
+            </form>
+            <div data-role="footer">
+                <h2>&copy; Spring 2024 by Jaqueline Navarro</h2>  
+            </div>
+        </div>
+<!------------------------ LIST OF RECIPES  --------------------------->
+        <div data-role="page" data-theme="a"id="page3">
+            <div data-role="header">
+                <div class="title-wrap">
+                    <img src="images/logochef.png" alt="Image by pngtree.com" class="logoImg"> 
+                    <h1>Your List of Recipes</h1>
+                </div>
+                <div data-role="navbar">
+                    <ul>
+                        <li class="navtext"><a href="#page1">Home</a></li>
+                        <li class="navtext"><a href="#page2">Add a New Recipe</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content">
+                <p class="homeText">Here you will find the list of the recipes that the user is going to enter. Each element of the list will have a link that is going to take you the Recipe Details (my 4th page).</p>
+                
+                <ul>
+                    <a href="#page4">click here!</a>
+                </ul>
+            </div>
+            <div data-role="footer">
+                <h2>&copy; Spring 2024 by Jaqueline Navarro</h2> 
+            </div>
+        </div>
+<!------------------------ RECIPE DETAILS ----------------------------->
+        <div data-role="page" data-theme="a" id="page4">
+            <div data-role="header">
+                <div class="title-wrap">
+                    <img src="images/logochef.png" alt="Image by pngtree.com" class="logoImg"> 
+                    <h1>Name of the Recipe</h1>
+                </div>
+                <div data-role="navbar">
+                    <ul>
+                        <li class="navtext"><a href="#page1">Home</a></li>
+                        <li class="navtext"><a href="#page2">Add a New Recipe</a></li>
+                        <li class="navtext"><a href="#page3">List of Recipes</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content"></div>
+            <div data-role="footer">
+                <h2>&copy; Spring 2024 by Jaqueline Navarro</h2>  
+            </div>
+        </div>
+    </body>
 </html>
