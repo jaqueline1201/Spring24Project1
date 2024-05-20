@@ -56,11 +56,13 @@
                 </div>
             </div>
                 <div data-role="main" class="ui-content">
-                    <form action="#" method="get">
+                    <form action="#" method="get" id="recipeForm">
                         Recipe Title:<br>
                         <input type="text" id="recipeTitle">
+                        <span id="recipeTitleError" class="errorMessage"></span>
                         <label for="typeOfFood">Type of Food:</label>
                         <select name="typeOfFood" id="typeOfFood">
+                            <option value="none" selected disabled hidden>Choose here</option>
                             <option value="mexican">Mexican</option>
                             <option value="chinese">Chinese</option>
                             <option value="japanease">Japanese</option>
@@ -68,23 +70,28 @@
                             <option value="vietnamise">Vietnamise</option>
                             <option value="dessert">Dessert</option>
                             <option value="drinks">Drinks</option>
+                            <option value="other">Other</option>
                         </select>
+                        <span id="typeOfFoodError" class="errorMessage"></span>
                         <fieldset data-role="controlgroup" data-type="horizontal">
                             <label for="choice1">Online Source</label>
                             <input type="radio" name="choice1" id="choice1">
                             <label for="choice2">Personal Source</label>
                             <input type="radio" name="choice2" id="choice2">
                         </fieldset>
+                        <span id="typeOfFoodError" class="errorMessage"></span>
                         Ingredients:<br>
-                        <input type="text">
+                        <input type="text" id="ingredients">
+                        <span id="ingredientsError" class="errorMessage"></span>
                         Instructions:<br>
-                        <input type="text">
+                        <input type="text" id="instructions">
+                        <span id="instructionsError" class="errorMessage"></span>
                         URL:<br>
-                        <input type="text">
+                        <input type="text" id="source">
                         Notes:<br>
-                        <input type="text">
-                        <button class="ui-btn ui-btn-inline">Save</button>
-                        <button class="ui-btn ui-btn-inline">Clear</button>
+                        <input type="text" id="notes">
+                        <button class="ui-btn ui-btn-inline" onclick="save()">Save</button>
+                        <button class="ui-btn ui-btn-inline" onclick="clear()">Clear</button>
                 </div>
             </form>
             <div data-role="footer">
