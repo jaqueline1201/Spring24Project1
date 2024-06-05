@@ -1,4 +1,39 @@
+function validateAndSaveForm () {
 
+    $(".errorMessage").html("") 
+    console.log("submit")
+        
+    const recipeTitle = $("#recipeTitle").val();
+    if(!recipeTitle) {
+        $("#recipeTitleError").html("error")
+        $("#recipeTitle").css("border","2px solid red")
+    }
+    const typeOfFood = $("#typeOfFood").val();
+    console.log($("#typeOfFood").val());
+    if(!typeOfFood) {
+        $("#typeOfFoodError").html("error") 
+    } 
+    const ingredients = $("#")
+    
+        
+
+    return false;
+}
+
+$(document).ready(function(){
+    $("#recipeForm").on("submit", validateAndSaveForm)
+    
+  });
+
+
+
+
+
+
+
+
+
+//old//
 const recipesInformation = [];
 
 const recipe = function (rTitle,rType,rSource,rIngredients,rInstructions,rLink,rNotes) {
