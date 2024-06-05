@@ -1,3 +1,4 @@
+
 const recipesInformation = [];
 
 const recipe = function (rTitle,rType,rSource,rIngredients,rInstructions,rLink,rNotes) {
@@ -8,7 +9,7 @@ const recipe = function (rTitle,rType,rSource,rIngredients,rInstructions,rLink,r
     this.instructions = rInstructions;
     this.link = rLink;
     this.notes = rNotes;
-}
+};
 
 function addRecipe () {
     let isValid = true;
@@ -26,53 +27,68 @@ function addRecipe () {
         isValid = false;
     }
 
-    return false;
+    return isValid;
     
 }
 
 function isTitleValid () {
     let recipeTitle = document.getElementById("recipeTitle").value;
-    if (recipeTitle == "") {
+    if (recipeTitle === "") {
         document.getElementById("recipeTitleError").innerHTML = "Title of the recipe is requiered!"
-    } else {
-        document.getElementById("recipeTitleError").innerHTML = ""
-        return true;
+        
+        return false;
     }
+        document.getElementById("recipeTitleError").innerHTML = ""
+        
+        return true;
 }
 
 function isTypeOfFoodValid () {
     let typeOfFood = document.getElementById("typeOfFood").value;
-    if (typeOfFood == "none") {
+    if (typeOfFood === "none") {
         document.getElementById("typeOfFoodError").innerHTML = "Please choose a type of Food!"
-    } else {
-        document.getElementById("typeOfFoodError").innerHTML = ""
-        return true;
-    }
-}
 
-//function of the fieldset goes here//
+        return false;
+    } 
+        document.getElementById("typeOfFoodError").innerHTML = ""
+        
+        return true;
+}
 
 function isIngredientsValid () {
     let ingredients = document.getElementById("ingredients").value;
-    if (ingredients == "") {
+    if (ingredients === "") {
         document.getElementById("ingredientsError").innerHTML = "Don't forget to list your ingredients!"
-    } else {
+
+        return false;
+    } 
         document.getElementById("ingredientsError").innerHTML = ""
+
         return true;
     }
-}
 
 function isInstructionsValid () {
     let instructions = document.getElementById("instructions").value;
-    if (instructions == "") {
-        document.getElementById("instructionsError").innerHTML = ""
+    if (instructions === "") {
+        document.getElementById("instructionsError").innerHTML = "Don't forget the instructions!"
+
+        return false;
+    }
+        document.getElementById("instructionsError").innerHTML =""
+
         return true;
     }
-}
 
-function save ()
+function isURLneeded () {
+    let defaultBtn = document.getElementById("choice2");
+    defaultBtn.checked = true;
+
+    // if(defaultBtn === false) {
+    //     let appearURL 
+    // }
+}
 
 function clearList () {
     let recipeForm = document.getElementById("recipeForm");
-    movieList.innerHTML = "";
+    recipeForm.innerHTML = "";
 }

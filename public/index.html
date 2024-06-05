@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <title>MyMobileProject</title>
+        <title>Recipes Project</title>
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" href="css/themes/recipesproject.css">
         <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
@@ -56,7 +56,7 @@
                 </div>
             </div>
                 <div data-role="main" class="ui-content">
-                    <form action="#" method="get" id="recipeForm">
+                    <form action="#" method="get" id="recipeForm" onsubmit="addRecipe();">
                         Recipe Title:<br>
                         <input type="text" id="recipeTitle">
                         <span id="recipeTitleError" class="errorMessage"></span>
@@ -73,25 +73,24 @@
                             <option value="other">Other</option>
                         </select>
                         <span id="typeOfFoodError" class="errorMessage"></span>
-                        <fieldset data-role="controlgroup" data-type="horizontal">
-                            <label for="choice1">Online Source</label>
-                            <input type="radio" name="choice1" id="choice1">
-                            <label for="choice2">Personal Source</label>
-                            <input type="radio" name="choice2" id="choice2">
-                        </fieldset>
-                        <span id="typeOfFoodError" class="errorMessage"></span>
                         Ingredients:<br>
                         <input type="text" id="ingredients">
                         <span id="ingredientsError" class="errorMessage"></span>
                         Instructions:<br>
                         <input type="text" id="instructions">
                         <span id="instructionsError" class="errorMessage"></span>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <label for="choice1">Online Source</label>
+                            <input type="radio" name="choice" id="choice1" value="online">
+                            <label for="choice2">Personal Source</label>
+                            <input type="radio" name="choice" id="choice2" value="personal">
+                        </fieldset>
                         URL:<br>
                         <input type="text" id="source">
                         Notes:<br>
                         <input type="text" id="notes">
-                        <button class="ui-btn ui-btn-inline" onclick="save()">Save</button>
-                        <button class="ui-btn ui-btn-inline" onclick="clear()">Clear</button>
+                        <button type="submit" class="ui-btn ui-btn-inline">Save</button>
+                        <button type="button" class="ui-btn ui-btn-inline">Clear</button>
                 </div>
             </form>
             <div data-role="footer">
