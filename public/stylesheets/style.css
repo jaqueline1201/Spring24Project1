@@ -46,3 +46,7 @@ form {
     margin: 0, auto;
     width: 100%;
 }
+
+.errorMessage {
+    color: #a4070f;
+}

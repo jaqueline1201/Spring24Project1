@@ -1,31 +1,46 @@
 function validateAndSaveForm () {
-
+    
     $(".errorMessage").html("") 
     console.log("submit")
         
     const recipeTitle = $("#recipeTitle").val();
     if(!recipeTitle) {
-        $("#recipeTitleError").html("error")
+        $("#recipeTitleError").html("It is important to write the title!")
         $("#recipeTitle").css("border","2px solid red")
     }
     const typeOfFood = $("#typeOfFood").val();
     console.log($("#typeOfFood").val());
     if(!typeOfFood) {
-        $("#typeOfFoodError").html("error") 
-    } 
-    const ingredients = $("#")
-    
+        $("#typeOfFoodError").html("error")
         
+    } 
+    const ingredients = $("#ingredients").val();
+    if(!ingredients){
+        $("#ingredientsError").html("error")
+        $("#ingredients").css("border","2px solid red") 
+    }
+
+    const instructions = $("#instructions").val();
+    if(!instructions){
+        $("#instructionsError").html("error")
+        $("#instructions").css("border","2px solid red") 
+    }
+    
 
     return false;
 }
 
+
+
 $(document).ready(function(){
     $("#recipeForm").on("submit", validateAndSaveForm)
     
+    
   });
 
-
+$(document).click(function(){
+    $("#recipeForm")[0].reset();
+  });
 
 
 
@@ -123,7 +138,7 @@ function isURLneeded () {
     // }
 }
 
-function clearList () {
-    let recipeForm = document.getElementById("recipeForm");
-    recipeForm.innerHTML = "";
-}
+// function clearList () {
+//     let recipeForm = document.getElementById("recipeForm");
+//     recipeForm.innerHTML = "";
+// }
