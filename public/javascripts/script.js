@@ -11,18 +11,18 @@ function validateAndSaveForm () {
     const typeOfFood = $("#typeOfFood").val();
     console.log($("#typeOfFood").val());
     if(!typeOfFood) {
-        $("#typeOfFoodError").html("error")
+        $("#typeOfFoodError").html("Don't forget to chose a category!")
         
     } 
     const ingredients = $("#ingredients").val();
     if(!ingredients){
-        $("#ingredientsError").html("error")
+        $("#ingredientsError").html("Ingredients are important, you must write them!")
         $("#ingredients").css("border","2px solid red") 
     }
 
     const instructions = $("#instructions").val();
     if(!instructions){
-        $("#instructionsError").html("error")
+        $("#instructionsError").html("Please write your instructions!")
         $("#instructions").css("border","2px solid red") 
     }
     
