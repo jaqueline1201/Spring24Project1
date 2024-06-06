@@ -24,17 +24,20 @@ function validateAndSaveForm () {
         $("#instructionsError").html("Please write your instructions!")
         $("#instructions").css("border","2px solid red") 
     }
-    
 
     return false;
 }
+
+
 
 $(document).ready(function(){
     $("#recipeForm").on("submit", validateAndSaveForm)
     $("#clearForm").click(function(){
         $("#recipeForm")[0].reset();
       });
-    
+    $("#choice2").click(function(){
+        $("#sourceURL").hide();
+    })
   });
 
 
