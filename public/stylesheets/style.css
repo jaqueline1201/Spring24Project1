@@ -50,3 +50,15 @@ form {
 .errorMessage {
     color: #a4070f;
 }
+
+.ui-radio {
+    width: 50%;
+}
+
+.ui-controlgroup-controls {
+    width: 100%;
+}
+
+.textCenter {
+    text-align: center;
+}

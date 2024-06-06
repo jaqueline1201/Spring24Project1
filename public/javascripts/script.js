@@ -37,6 +37,9 @@ $(document).ready(function(){
     $("#choice1").click(function(){
         $("#sourceURL").show();
     });
+    $("#newIngredient").click(function(){
+        $("#ingredientsList").append('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="ingredient" class="border"></div>');
+    })
     
   });
 

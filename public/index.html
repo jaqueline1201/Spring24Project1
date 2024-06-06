@@ -75,17 +75,21 @@
                         <span id="typeOfFoodError" class="errorMessage"></span>
                         <label for="ingredients"></label>
                         Ingredients:<br>
-                        <input type="text" id="ingredients" class="border">
-                        <button>New Ingredient</button>
+                        <div id="ingredientsList">
+                            <input type="text" name="ingredient" class="border">
+                        </div>
+                        <button type="button" id="newIngredient">New Ingredient</button>
                         <span id="ingredientsError" class="errorMessage"></span>
                         Instructions:<br>
-                        <input type="text" id="instructions" class="border">
-                        <button>New Step</button>
+                        <div id="instructionsList">
+                            <input type="text" name="newStep" class="border">
+                        </div>
+                        <button type="button" id="newStep">New Step</button>
                         <span id="instructionsError" class="errorMessage"></span>
                         <fieldset data-role="controlgroup" data-type="horizontal" id="sourceOption">
-                            <label for="choice1">Online Source</label>
+                            <label for="choice1" style="text-align: center;">Online Source</label>
                             <input type="radio" name="choice" checked ="checked" id="choice1" value="online">
-                            <label for="choice2">Personal Source</label>
+                            <label for="choice2" style="text-align: center;">Personal Source</label>
                             <input type="radio" name="choice" id="choice2" value="personal">
                         </fieldset>
                         <div id="sourceURL">
