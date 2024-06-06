@@ -37,6 +37,9 @@ $(document).ready(function(){
       });
     $("#choice2").click(function(){
         $("#sourceURL").hide();
+    });
+    $("#choice1").click(function(){
+        $("#sourceURL").show();
     })
   });
 
