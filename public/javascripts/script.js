@@ -19,7 +19,6 @@ function validateAndSaveForm () {
         $("#ingredientsError").html("Ingredients are important, you must write them!")
         $("#ingredients").css("border","2px solid red") 
     }
-
     const instructions = $("#instructions").val();
     if(!instructions){
         $("#instructionsError").html("Please write your instructions!")
@@ -30,17 +29,15 @@ function validateAndSaveForm () {
     return false;
 }
 
-
-
 $(document).ready(function(){
     $("#recipeForm").on("submit", validateAndSaveForm)
-    
+    $("#clearForm").click(function(){
+        $("#recipeForm")[0].reset();
+      });
     
   });
 
-$(document).click(function(){
-    $("#recipeForm")[0].reset();
-  });
+
 
 
 
