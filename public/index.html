@@ -58,7 +58,7 @@
                 <div data-role="main" class="ui-content">
                     <form action="#" method="get" id="recipeForm">
                         Recipe Title:<br>
-                        <input type="text" id="recipeTitle">
+                        <input type="text" id="recipeTitle" class="border">
                         <span id="recipeTitleError" class="errorMessage"></span>
                         <label for="typeOfFood">Type of Food:</label>
                         <select name="typeOfFood" id="typeOfFood">
@@ -75,10 +75,12 @@
                         <span id="typeOfFoodError" class="errorMessage"></span>
                         <label for="ingredients"></label>
                         Ingredients:<br>
-                        <input type="text" id="ingredients">
+                        <input type="text" id="ingredients" class="border">
+                        <button>New Ingredient</button>
                         <span id="ingredientsError" class="errorMessage"></span>
                         Instructions:<br>
-                        <input type="text" id="instructions">
+                        <input type="text" id="instructions" class="border">
+                        <button>New Step</button>
                         <span id="instructionsError" class="errorMessage"></span>
                         <fieldset data-role="controlgroup" data-type="horizontal" id="sourceOption">
                             <label for="choice1">Online Source</label>
@@ -93,7 +95,6 @@
                         Notes:<br>
                         <input type="text" id="notes">
                         <input type="submit" id="submit" value="Save"/>
-                        <!-- <button type="submit" class="ui-btn ui-btn-inline">Save</button> -->
                         <input type="reset" id="clearForm" value="Clear"/> 
                         
                 </div>

@@ -1,7 +1,4 @@
 function validateAndSaveForm () {
-    
-    $(".errorMessage").html("") 
-    console.log("submit")
         
     const recipeTitle = $("#recipeTitle").val();
     if(!recipeTitle) {
@@ -9,7 +6,6 @@ function validateAndSaveForm () {
         $("#recipeTitle").css("border","2px solid red")
     }
     const typeOfFood = $("#typeOfFood").val();
-    console.log($("#typeOfFood").val());
     if(!typeOfFood) {
         $("#typeOfFoodError").html("Don't forget to chose a category!")
         
@@ -28,26 +24,21 @@ function validateAndSaveForm () {
     return false;
 }
 
-
-
 $(document).ready(function(){
     $("#recipeForm").on("submit", validateAndSaveForm)
     $("#clearForm").click(function(){
         $("#recipeForm")[0].reset();
+        $(".errorMessage").html(""); 
+        $(".border").css("border",".05px solid black") 
       });
     $("#choice2").click(function(){
         $("#sourceURL").hide();
     });
     $("#choice1").click(function(){
         $("#sourceURL").show();
-    })
+    });
+    
   });
-
-
-
-
-
-
 
 
 
