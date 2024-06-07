@@ -47,6 +47,7 @@ $(document).ready(function(){
         `);
     });
     $("#newStep").click(function(){
+        instructionsCounter++;
         $("#instructionsList").append(`
             <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset" id="containerInstructions${instructionsCounter}">
             <input type="text" name="newStep" class="nextStep" id="instructions${instructionsCounter}">
@@ -63,8 +64,6 @@ $(document).ready(function(){
     });
 
   });
-
-
 
 //old//
 const recipesInformation = [];
