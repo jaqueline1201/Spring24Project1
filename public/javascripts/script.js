@@ -24,6 +24,8 @@ function validateAndSaveForm () {
 }
 
 $(document).ready(function(){
+    let ingredientsCounter = 1;
+
     $("#recipeForm").on("submit", validateAndSaveForm)
     $("#clearForm").click(function(){
         $("#recipeForm")[0].reset();
@@ -37,12 +39,23 @@ $(document).ready(function(){
         $("#sourceURL").show();
     });
     $("#newIngredient").click(function(){
-        $("#ingredientsList").append('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="ingredient" class="nextIngredient"></div>');
+        ingredientsCounter++;
+        $("#ingredientsList").append(`
+            <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset" id="containerIngredient${ingredientsCounter}">
+                <input type="text" name="ingredient" class="nextIngredient" id="ingredient${ingredientsCounter}">
+            </div>
+        `);
     });
     $("#newStep").click(function(){
         $("#instructionsList").append('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="newStep" class="nextStep"></div>')
     });
-    $("#deleteIngredient").click(function(){
+    
+    $("#deleteIngredient").click(function(){     
+        $(`#containerIngredient${ingredientsCounter}`).remove();
+        ingredientsCounter--;
+        // variable ingredientscounter have to be minus 1 
+        // eliminar un input 
+        // eliminar el input con el numero mayor 
 
     })
   });
