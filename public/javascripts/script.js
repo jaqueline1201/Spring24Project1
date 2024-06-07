@@ -3,7 +3,6 @@ function validateAndSaveForm () {
     const recipeTitle = $("#recipeTitle").val();
     if(!recipeTitle) {
         $("#recipeTitleError").html("It is important to write the title!")
-        $("#recipeTitle").css("border","2px solid red")
     }
     const typeOfFood = $("#typeOfFood").val();
     if(!typeOfFood) {
@@ -29,7 +28,7 @@ $(document).ready(function(){
     $("#clearForm").click(function(){
         $("#recipeForm")[0].reset();
         $(".errorMessage").html(""); 
-        $(".border").css("border",".05px solid black") 
+        $(".border").css("border",".05px solid black");
       });
     $("#choice2").click(function(){
         $("#sourceURL").hide();
@@ -38,9 +37,14 @@ $(document).ready(function(){
         $("#sourceURL").show();
     });
     $("#newIngredient").click(function(){
-        $("#ingredientsList").append('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="ingredient" class="border"></div>');
+        $("#ingredientsList").append('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="ingredient" class="nextIngredient"></div>');
+    });
+    $("#newStep").click(function(){
+        $("#instructionsList").append('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="newStep" class="nextStep"></div>')
+    });
+    $("#deleteIngredient").click(function(){
+
     })
-    
   });
 
 

@@ -76,15 +76,17 @@
                         <label for="ingredients"></label>
                         Ingredients:<br>
                         <div id="ingredientsList">
-                            <input type="text" name="ingredient" class="border">
+                            <input type="text" name="ingredient" class="nextIngredient" id="firstIngredient"> 
                         </div>
                         <button type="button" id="newIngredient">New Ingredient</button>
+                        <button type="button" id="deleteIngredient">Delete Ingredient</button>
                         <span id="ingredientsError" class="errorMessage"></span>
                         Instructions:<br>
                         <div id="instructionsList">
-                            <input type="text" name="newStep" class="border">
+                            <input type="text" name="newStep" class="nextStep" id="firstStep">
                         </div>
                         <button type="button" id="newStep">New Step</button>
+                        <button type="button" id="deleteStep">Delete Step</button>
                         <span id="instructionsError" class="errorMessage"></span>
                         <fieldset data-role="controlgroup" data-type="horizontal" id="sourceOption">
                             <label for="choice1" style="text-align: center;">Online Source</label>
