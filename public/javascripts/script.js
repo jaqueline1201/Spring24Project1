@@ -1,5 +1,7 @@
-function validateAndSaveForm () {
-        
+//START OF THE ADD NEW RECIPE PAGE//
+function validateAndSaveForm (event) {
+       
+    event.preventDefault();
     const recipeTitle = $("#recipeTitle").val();
     if(!recipeTitle) {
         $("#recipeTitleError").html("It is important to write the title!")
@@ -64,11 +66,12 @@ $(document).ready(function(){
     });
 
   });
+//END OF THE ADD NEW RECIPE PAGE//
 
-//old//
+
 const recipesInformation = [];
 
-const recipe = function (rTitle,rType,rSource,rIngredients,rInstructions,rLink,rNotes) {
+const recipeObject = function (rTitle,rType,rSource,rIngredients,rInstructions,rLink,rNotes) {
     this.title = rTitle;
     this.type = rType;
     this.source = rSource;
@@ -78,77 +81,79 @@ const recipe = function (rTitle,rType,rSource,rIngredients,rInstructions,rLink,r
     this.notes = rNotes;
 };
 
-function addRecipe () {
-    let isValid = true;
 
-    if (!isTitleValid()) {
-        isValid = false;
-    }
-    if (!isTypeOfFoodValid ()) {
-        isValid = false;
-    }
-    if (!isIngredientsValid()) {
-        isValid = false;
-    }
-    if (!isInstructionsValid()) {
-        isValid = false;
-    }
 
-    return isValid;
+// function addRecipe () {
+//     let isValid = true;
+
+//     if (!isTitleValid()) {
+//         isValid = false;
+//     }
+//     if (!isTypeOfFoodValid ()) {
+//         isValid = false;
+//     }
+//     if (!isIngredientsValid()) {
+//         isValid = false;
+//     }
+//     if (!isInstructionsValid()) {
+//         isValid = false;
+//     }
+
+//     return isValid;
     
-}
+// }
 
-function isTitleValid () {
-    let recipeTitle = document.getElementById("recipeTitle").value;
-    if (recipeTitle === "") {
-        document.getElementById("recipeTitleError").innerHTML = "Title of the recipe is requiered!"
+// function isTitleValid () {
+//     let recipeTitle = document.getElementById("recipeTitle").value;
+//     if (recipeTitle === "") {
+//         document.getElementById("recipeTitleError").innerHTML = "Title of the recipe is requiered!"
         
-        return false;
-    }
-        document.getElementById("recipeTitleError").innerHTML = ""
+//         return false;
+//     }
+//         document.getElementById("recipeTitleError").innerHTML = ""
         
-        return true;
-}
+//         return true;
+// }
 
-function isTypeOfFoodValid () {
-    let typeOfFood = document.getElementById("typeOfFood").value;
-    if (typeOfFood === "none") {
-        document.getElementById("typeOfFoodError").innerHTML = "Please choose a type of Food!"
+// function isTypeOfFoodValid () {
+//     let typeOfFood = document.getElementById("typeOfFood").value;
+//     if (typeOfFood === "none") {
+//         document.getElementById("typeOfFoodError").innerHTML = "Please choose a type of Food!"
 
-        return false;
-    } 
-        document.getElementById("typeOfFoodError").innerHTML = ""
+//         return false;
+//     } 
+//         document.getElementById("typeOfFoodError").innerHTML = ""
         
-        return true;
-}
+//         return true;
+// }
 
-function isIngredientsValid () {
-    let ingredients = document.getElementById("ingredients").value;
-    if (ingredients === "") {
-        document.getElementById("ingredientsError").innerHTML = "Don't forget to list your ingredients!"
+// function isIngredientsValid () {
+//     let ingredients = document.getElementById("ingredients").value;
+//     if (ingredients === "") {
+//         document.getElementById("ingredientsError").innerHTML = "Don't forget to list your ingredients!"
 
-        return false;
-    } 
-        document.getElementById("ingredientsError").innerHTML = ""
+//         return false;
+//     } 
+//         document.getElementById("ingredientsError").innerHTML = ""
 
-        return true;
-    }
+//         return true;
+//     }
 
-function isInstructionsValid () {
-    let instructions = document.getElementById("instructions").value;
-    if (instructions === "") {
-        document.getElementById("instructionsError").innerHTML = "Don't forget the instructions!"
+// function isInstructionsValid () {
+//     let instructions = document.getElementById("instructions").value;
+//     if (instructions === "") {
+//         document.getElementById("instructionsError").innerHTML = "Don't forget the instructions!"
 
-        return false;
-    }
-        document.getElementById("instructionsError").innerHTML =""
+//         return false;
+//     }
+//         document.getElementById("instructionsError").innerHTML =""
 
-        return true;
-    }
+//         return true;
+//     }
 
-function isURLneeded () {
-    let defaultBtn = document.getElementById("choice2");
-    defaultBtn.checked = true;
+// function isURLneeded () {
+//     let defaultBtn = document.getElementById("choice2");
+//     defaultBtn.checked = true;
 
     // if(defaultBtn === false) {
     //     let appearURL 
