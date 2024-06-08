@@ -1,65 +1,76 @@
 //START OF THE ADD NEW RECIPE PAGE//
 function validateAndSaveForm (event) {
-    
     event.preventDefault();
-    reset();
+
+    reset(false);
+
     const recipeTitle = $("#recipeTitle").val();
     const typeOfFood = $("#typeOfFood").val();
     const ingredients = [];
-    const instructions = $("#instructions").val();
+    const instructions = []; 
     const url = $("#source").val();
     const choiceOnline =$("#choice1").val();
     const choicePersonal = $("#choice2").val();
     const notes = $("#notes").val();
     let isValid = true;
     
-    
     $('[name="ingredient[]"]').each(function() {
         let valueIngredient = $(this).val()
 
-        if(!valueIngredient){
-
-            $("#ingredientsError").html("Ingredients are important, you must write them!")
+        if (!valueIngredient) {
+            $("#ingredientsError").html("Ingredients are important, you must write them!");
             $(this).css("border","2px solid red") 
             isValid = false;
-        }else {
+        } else {
             ingredients.push(valueIngredient)
         }
+    });
 
-        
+    $('[name="newStep[]"]').each(function() {
+        let valueInstruction = $(this).val()
+
+        if(!valueInstruction) {
+            $("#instructionsError").html("Don't forget to write the instructions!");
+            $(this).css("border","2px solid red")
+            isValid = false;
+        } else {
+            instructions.push(valueInstruction)
+        }
     });
     
     if(!recipeTitle) {
         $("#recipeTitleError").html("It is important to write the title!")
+        $("#recipeTitle").css("border", "2px solid red")
+        isValid = false
+    } else {
+        recipeTitle.push($("#recipeTitle").val());
     }
     
     if(!typeOfFood) {
         $("#typeOfFoodError").html("Don't forget to chose a category!")
-        
+        $("#typeOfFood-button").css("border", "2px solid red")
     } 
-    
-    
-    
-    if(!instructions){
-        $("#instructionsError").html("Please write your instructions!")
-        $("#instructions").css("border","2px solid red") 
-    }
 
-
+    
 
     return false;
 }
 
-function reset (){
-    $("#recipeForm")[0].reset();
+function reset (deleteValues){ 
+    if (deleteValues) {
+        $("#recipeForm")[0].reset();
+    }
+    
     $(".errorMessage").html(""); 
     $(".border").css("border",".05px solid black");  
+    $("#typeOfFood-button").css("border", ".05px solid black")
 }
 $(document).ready(function(){
     let ingredientsCounter = 1;
     let instructionsCounter = 1;
-    $("#recipeForm").on("submit", validateAndSaveForm)
-    $("#clearForm").click(reset);
+
+    $("#recipeForm").on("submit", validateAndSaveForm);
+    $("#clearForm").click(function () { reset(true); });
     $("#choice2").click(function(){
         $("#sourceURL").hide();
     });
@@ -78,7 +89,7 @@ $(document).ready(function(){
         instructionsCounter++;
         $("#instructionsList").append(`
             <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset" id="containerInstructions${instructionsCounter}">
-            <input type="text" name="newStep" class="nextStep" id="instructions${instructionsCounter}">
+            <input type="text" name="newStep[]" class="nextStep border" id="instructions${instructionsCounter}">
         </div>
         `);
     });
