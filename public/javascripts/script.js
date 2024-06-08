@@ -9,8 +9,7 @@ function validateAndSaveForm (event) {
     const ingredients = [];
     const instructions = []; 
     const url = $("#source").val();
-    const choiceOnline =$("#choice1").val();
-    const choicePersonal = $("#choice2").val();
+    const sourceOption = $('input[name=choice]:checked', '#recipeForm').val();
     const notes = $("#notes").val();
     let isValid = true;
     
@@ -42,17 +41,22 @@ function validateAndSaveForm (event) {
         $("#recipeTitleError").html("It is important to write the title!")
         $("#recipeTitle").css("border", "2px solid red")
         isValid = false
-    } else {
-        recipeTitle.push($("#recipeTitle").val());
-    }
+    } 
     
     if(!typeOfFood) {
         $("#typeOfFoodError").html("Don't forget to chose a category!")
         $("#typeOfFood-button").css("border", "2px solid red")
+        isValid = false;
     } 
 
-    
-
+    if(sourceOption === "online") {
+        if(!url) {
+            $("#urlError").html("The URL of the recipe is required")
+            $("#source").css("border", "2px solid red")
+            isValid = false;
+        }
+    }
+    console.log(isValid)
     return false;
 }
 
