@@ -58,12 +58,12 @@
                 <div data-role="main" class="ui-content">
                     <form action="#" method="get" id="recipeForm">
                         Recipe Title:<br>
-                        <input type="text" id="recipeTitle" class="border">
+                        <input type="text" id="recipeTitle" class="border" name="titleRecipe">
                         <ul></ul>
                         <span id="recipeTitleError" class="errorMessage"></span>
                         <label for="typeOfFood">Type of Food:</label>
                         <select name="typeOfFood" id="typeOfFood">
-                            <option value="none" selected disabled hidden>Choose here</option>
+                            <option value="0" selected disabled hidden>Choose here</option>
                             <option value="1">Mexican</option>
                             <option value="2">Chinese</option>
                             <option value="3">Japanese</option>
@@ -77,7 +77,7 @@
                         <label for="ingredients"></label>
                         Ingredients:<br>
                         <div id="ingredientsList">
-                            <input type="text" name="ingredient" class="nextIngredient" id="ingredient1"> 
+                            <input type="text" name="ingredient[]" class="nextIngredient border" id="ingredient1"> 
                         </div>
                         <button type="button" id="newIngredient">New Ingredient</button>
                         <button type="button" id="deleteIngredient">Delete Ingredient</button>
