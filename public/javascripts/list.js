@@ -8,6 +8,11 @@ $(document).ready(function(){
             dataType:"json",
             success: function(data) {
                 const recipes = data.recipeList;
+                console.log(recipes)
+                if(recipes.length == 0 ){
+            
+                    $("#recipeContainer").html("<li>Theres is nothing to see here!</li>")
+                }
                 recipes.forEach(function(value,index) {
                     console.log(value);
                     
@@ -15,6 +20,7 @@ $(document).ready(function(){
                     <li><a href="#page4" id="${index}" class="recipeLink">${value.title}</a></li> 
                     `);
                 });
+
                 $(".recipeLink").click(function(){
                     index = $(this).attr('id');
                     console.log($(this).attr('id'))
@@ -42,9 +48,9 @@ $(document).ready(function(){
                     <div><ul>${instructionsElements}</ul></div>
                     <div><p>${recipes[index].link}</p></div>
                     `)
-                    })
-                }
-            })
+                });
+            }
+        })
     }
 
     $(".listLink").click(function(){
@@ -64,5 +70,6 @@ $(document).ready(function(){
                     alert('Your recipe was not deleted! :(')
                 }
             })
-    });    
+    }); 
+    
 })
