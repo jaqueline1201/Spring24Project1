@@ -12,7 +12,18 @@ function validateAndSaveForm (event) {
     const sourceOption = $('input[name=choice]:checked', '#recipeForm').val();
     const notes = $("#notes").val();
     let isValid = true;
-    
+
+    const Recipe = function (recipeTitle, typeOfFood, ingredients, instructions, url, sourceOption, notes) {
+
+        this.title = recipeTitle;
+        this.type = typeOfFood;
+        this.ingredientes = ingredients;
+        this.instructions = instructions;
+        this.source = url;
+        this.link = sourceOption;
+        this.notes = notes;
+    };
+
     $('[name="ingredient[]"]').each(function() {
         let valueIngredient = $(this).val()
 
@@ -58,13 +69,19 @@ function validateAndSaveForm (event) {
     }
     
     if(isValid){
-        $.ajax({
-            type:"POST",
-            url:"/recipes"
-    
-        });
+
+        const recipeInformation = new Recipe (recipeTitle, typeOfFood, ingredients, instructions, url, sourceOption, notes);
+        const data = JSON.stringify(recipeInformation);
+            $.ajax({
+                type:"POST",
+                url:"/recipes",
+                data:data, 
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            });
     }
    
+    
     
     return false;
 
@@ -121,15 +138,4 @@ $(document).ready(function(){
 //END OF THE ADD NEW RECIPE PAGE//
 
 
-const recipesInformation = [];
-
-const recipeObject = function (rTitle,rType,rSource,rIngredients,rInstructions,rLink,rNotes) {
-    this.title = rTitle;
-    this.type = rType;
-    this.source = rSource;
-    this.ingredientes = rIngredients;
-    this.instructions = rInstructions;
-    this.link = rLink;
-    this.notes = rNotes;
-};
 
