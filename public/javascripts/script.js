@@ -17,10 +17,10 @@ function validateAndSaveForm (event) {
 
         this.title = recipeTitle;
         this.type = typeOfFood;
-        this.ingredientes = ingredients;
+        this.ingredients = ingredients;
         this.instructions = instructions;
-        this.source = url;
-        this.link = sourceOption;
+        this.source = sourceOption;
+        this.link = url;
         this.notes = notes;
     };
 
@@ -71,6 +71,7 @@ function validateAndSaveForm (event) {
     if(isValid){
 
         const recipeInformation = new Recipe (recipeTitle, typeOfFood, ingredients, instructions, url, sourceOption, notes);
+
         const data = JSON.stringify(recipeInformation);
             $.ajax({
                 type:"POST",
