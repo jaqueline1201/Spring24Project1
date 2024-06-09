@@ -16,6 +16,20 @@ const Recipe = function (recipeTitle, typeOfFood, ingredients, instructions, url
 };
 
 /* GET users listing. */
+router.delete('/:index', function(req, res, next) {
+    const deleteIndex = req.params.index;
+    let recipeQuantity = recipesCompilation.length;
+    if(deleteIndex > recipeQuantity){
+        res.status(400).send()
+    }else {
+        recipesCompilation.splice(deleteIndex,1)
+        res.status(200).send({
+            success:true
+        })
+    }
+});
+
+
 router.get('/', function(req, res, next) {
     res.send({
         recipeList: recipesCompilation
