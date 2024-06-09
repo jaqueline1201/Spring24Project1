@@ -1,7 +1,6 @@
 $(document).ready(function(){
     let index;
-
-    $(".listLink").click(function(){
+    function render(){
         $("#recipeContainer").html("");
         $.ajax({
             type: "GET",
@@ -46,19 +45,24 @@ $(document).ready(function(){
                     })
                 }
             })
-        })
-        $("#deleteRecipe").click(function(){
+    }
+
+    $(".listLink").click(function(){
+        render()
+    });
+
+    $("#deleteRecipe").click(function(){
             $.ajax({
                 type:"DELETE",
                 url:"/recipes/" + index,
                 success:function(data){
                     alert ('Your receipt has been deleted successfully!')
                     location.replace("#page3")
+                    render();
                 },
                 error:function(data){
                     alert('Your recipe was not deleted! :(')
                 }
             })
-        })
-        
+    });    
 })
