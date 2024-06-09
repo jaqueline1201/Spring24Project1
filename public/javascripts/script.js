@@ -56,8 +56,18 @@ function validateAndSaveForm (event) {
             isValid = false;
         }
     }
-    console.log(isValid)
+    
+    if(isValid){
+        $.ajax({
+            type:"POST",
+            url:"/recipes"
+    
+        });
+    }
+   
+    
     return false;
+
 }
 
 function reset (deleteValues){ 
@@ -105,6 +115,7 @@ $(document).ready(function(){
         $(`#containerInstructions${instructionsCounter}`).remove();
         instructionsCounter--;
     });
+    
 
   });
 //END OF THE ADD NEW RECIPE PAGE//
