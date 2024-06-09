@@ -8,10 +8,18 @@ $(document).ready(function(){
             recipes.forEach(function(value,index) {
                 console.log(value);
                 $("#recipeContainer").append(`
-                <li><a a href="#page4">${value.title}</a></li> 
+                <li><a href="#page4" id="${index}" class="recipeLink">${value.title}</a></li> 
                 `);
             });
+            $(".recipeLink").click(function(){
+                let index = $(this).attr('id');
+                console.log($(this).attr('id'))
+                $("#recipeInformation").html(`
+                <li>${recipes[index].title}</li>
+                `)
+            })
             
         }
     })
+    
 })
