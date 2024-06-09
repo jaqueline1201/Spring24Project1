@@ -87,7 +87,7 @@ function validateAndSaveForm (event) {
                 }
             });
     }
-   
+   alert('Your recipe was saved succesfully!')
     
     
     return false;
