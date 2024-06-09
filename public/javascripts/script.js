@@ -77,7 +77,13 @@ function validateAndSaveForm (event) {
                 url:"/recipes",
                 data:data, 
                 contentType: "application/json; charset=utf-8",
-                dataType: "json"
+                dataType: "json",
+                success:function(data){
+                    console.log(data);
+                },
+                error:function(data){
+                    console.log(data);
+                }
             });
     }
    
