@@ -62,3 +62,17 @@ form {
 .textCenter {
     text-align: center;
 }
+
+.listTitle {
+    font-family: "Itim", cursive;
+    text-align: center;
+    font-size: 25px;
+}
+
+.titleSection {
+    text-align: left;
+    font-family: "Comic Neue", cursive;
+}
+p{
+    font-family: "Comic Neue", cursive;
+}
