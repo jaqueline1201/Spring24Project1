@@ -17,16 +17,21 @@ const Recipe = function (recipeTitle, typeOfFood, ingredients, instructions, url
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+    res.send({
+        recipeList: recipesCompilation
+    });
 });
+
 router.post('/', function(req, res, next) {
 
     const newRecipe = new Recipe (req.body.title, req.body.type, req.body.ingredients, req.body.instructions, req.body.link, req.body.source, req.body.notes);
     
     recipesCompilation.push(newRecipe);
 
-    res.status(200).send({success:true, recipenumber:recipesCompilation.length});
-
+    res.status(200).send({ 
+        success: true, 
+        recipenumber: recipesCompilation.length
+    });
   });
 
 module.exports = router;

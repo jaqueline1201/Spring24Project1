@@ -79,17 +79,15 @@ function validateAndSaveForm (event) {
                 data:data, 
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                success:function(data){
-                    console.log(data);
+                success:function(){
+                    alert('Your recipe was saved succesfully!')
                 },
                 error:function(data){
-                    console.log(data);
+                    alert('Something went wrong!')
                 }
             });
+
     }
-   alert('Your recipe was saved succesfully!')
-    
-    
     return false;
 
 }
