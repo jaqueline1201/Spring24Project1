@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const recipesCompilation = []
-
+let recipesCompilation = []
 
 const Recipe = function (recipeTitle, typeOfFood, ingredients, instructions, url, sourceOption, notes) {
 
@@ -40,12 +39,12 @@ let fileManager  = {
   }
 };
 
-if(!fileManager.validData()){
-    recipesCompilation.push(new Recipe("Aguachile","2",["limon"], ["cortar"],"url","notes"))
+if (!fileManager.validData()) {
+    recipesCompilation.push(new Recipe("Paloma Cocktail","7",['Tequila','Grapefruit juice','Club soda','Lime juice','Agave nectar','Salt','Ice'], ['Rub the rim of a highball glass or margarita glass with a grapefruit wedge, and dip it in a small plate of salt.','Add the tequila, grapefruit juice, sparkling water, lime juice, and sweetener to the glass, stir to combine, and add ice to fill the glass.','Sweeten to taste, and garnish with a grapefruit or lime wedge. Enjoy!'],"https://www.loveandlemons.com/paloma/","For more tartness, squeeze in extra lime."))
     fileManager.write();
-}else {
+} else {
     fileManager.read(); 
-  }
+}
 
 
 /* GET users listing. */
@@ -62,11 +61,11 @@ router.delete('/:index', function(req, res, next) {
     }
 });
 
-
 router.get('/', function(req, res, next) {
     res.send({
         recipeList: recipesCompilation
     });
+    fileManager.read()
 });
 
 router.post('/', function(req, res, next) {
@@ -78,7 +77,9 @@ router.post('/', function(req, res, next) {
     res.status(200).send({ 
         success: true, 
         recipenumber: recipesCompilation.length
+        
     });
+    fileManager.write()
   });
 
 module.exports = router;
