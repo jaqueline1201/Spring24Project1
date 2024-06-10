@@ -14,6 +14,39 @@ const Recipe = function (recipeTitle, typeOfFood, ingredients, instructions, url
     this.link = url;
     this.notes = notes;
 };
+var fs = require("fs");
+
+let fileManager  = {
+  read: function() {
+    var rawdata = fs.readFileSync('objectdata.json');
+    let goodData = JSON.parse(rawdata);
+    recipesCompilation = goodData;
+  },
+
+  write: function() {
+    let data = JSON.stringify(recipesCompilation);
+    fs.writeFileSync('objectdata.json', data);
+  },
+
+  validData: function() {
+    var rawdata = fs.readFileSync('objectdata.json');
+    console.log(rawdata.length);
+    if(rawdata.length < 1) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+};
+
+if(!fileManager.validData()){
+    recipesCompilation.push(new Recipe("Aguachile","2",["limon"], ["cortar"],"url","notes"))
+    fileManager.write();
+}else {
+    fileManager.read(); 
+  }
+
 
 /* GET users listing. */
 router.delete('/:index', function(req, res, next) {

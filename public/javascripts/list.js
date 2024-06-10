@@ -27,7 +27,7 @@ $(document).ready(function(){
                     console.log(recipes[index].ingredients)
                     let ingredientsElements = "";
                     let instructionsElements = "";
-
+                    console.log(recipes[index].ingredients)
                     recipes[index].ingredients.forEach(function(value){
                         let ingredientsValue = `<li>${value}</li>`
 
