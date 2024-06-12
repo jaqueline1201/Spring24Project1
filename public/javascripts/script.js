@@ -80,7 +80,8 @@ function validateAndSaveForm (event) {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success:function(){
-                    alert('Your recipe was saved succesfully!')
+                    alert('Your recipe was saved succesfully!');
+                    $("#recipeForm")[0].reset();
                 },
                 error:function(data){
                     alert('Something went wrong!')
